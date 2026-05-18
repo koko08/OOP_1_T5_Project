@@ -1,0 +1,2 @@
+START:A
+A->aA|b

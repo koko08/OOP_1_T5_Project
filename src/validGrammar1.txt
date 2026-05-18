@@ -1,0 +1,4 @@
+START:S
+S->AB|a
+A->a
+B->b

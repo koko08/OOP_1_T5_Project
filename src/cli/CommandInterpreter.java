@@ -41,19 +41,45 @@ public class CommandInterpreter {
         Scanner scanner = new Scanner(System.in);
 
         while (context.isRunning()) {
-            try {
-                System.out.print("> ");
-                String input = scanner.nextLine().trim();
+            System.out.print("> ");
 
-                if (input.isEmpty()) {
-                    continue;
-                }
+            String input = scanner.nextLine();
 
-                execute(input);
-
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+            if (input == null || input.isBlank()) {
+                continue;
             }
+
+            processInput(input);
+        }
+
+        scanner.close();
+    }
+
+    private void processInput(String input) {
+        String[] tokens = input.trim().split("\\s+");
+
+        String commandName = tokens[0];
+
+        Command command = commands.get(commandName);
+
+        if (command == null) {
+            System.out.println("Unknown command.");
+            return;
+        }
+
+        String[] args =
+                java.util.Arrays.copyOfRange(
+                        tokens,
+                        1,
+                        tokens.length
+                );
+
+        try {
+            command.execute(args, context);
+        } catch (Exception e) {
+            System.out.println(
+                    "Error: " + e.getMessage()
+            );
         }
     }
 
