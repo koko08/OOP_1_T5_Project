@@ -5,6 +5,14 @@ import grammar.Rule;
 
 public class ChomskyChecker {
 
+    /**
+     * Проверява дали подадената граматика
+     * е в нормална форма на Чомски.
+     *
+     * @param grammar граматика за проверка
+     * @return true ако граматиката е в CNF,
+     *         false ако не е
+     */
     public boolean isChomskyNormalForm(Grammar grammar) {
         for (Rule rule : grammar.getRules()) {
 

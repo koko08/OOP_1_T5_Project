@@ -8,6 +8,14 @@ import java.util.Set;
 
 public class CYKParser {
 
+    /**
+     * Проверява дали даден низ се приема
+     * от подадената граматика.
+     *
+     * @param grammar граматика в CNF
+     * @param word входен низ
+     * @return true ако низът се приема
+     */
     public boolean accepts(Grammar grammar, String word) {
         int n = word.length();
 
@@ -28,6 +36,15 @@ public class CYKParser {
                 .contains(grammar.getStartSymbol());
     }
 
+    /**
+     * Инициализира диагонала на CYK таблицата
+     * с нетерминали, които генерират
+     * съответните терминали.
+     *
+     * @param grammar граматика
+     * @param word входен низ
+     * @param table CYK таблица
+     */
     private void initializeTable(
             Grammar grammar,
             String word,
@@ -47,6 +64,14 @@ public class CYKParser {
         }
     }
 
+    /**
+     * Попълва останалата част от CYK таблицата
+     * чрез динамично програмиране.
+     *
+     * @param grammar граматика
+     * @param word входен низ
+     * @param table CYK таблица
+     */
     private void fillTable(
             Grammar grammar,
             String word,
@@ -73,10 +98,8 @@ public class CYKParser {
                             char b = production.charAt(0);
                             char c = production.charAt(1);
 
-                            if (left.contains(b)
-                                    && right.contains(c)) {
-                                table[i][j]
-                                        .add(rule.getLeftSide());
+                            if (left.contains(b) && right.contains(c)) {
+                                table[i][j].add(rule.getLeftSide());
                             }
                         }
                     }

@@ -9,6 +9,12 @@ public class Grammar {
     private List<Rule> rules;
     private Character startSymbol;
 
+    /**
+     * Създава инстанция за граматика
+     * @param id идентификатор на граматиката
+     * @param startSymbol начален символ
+     */
+
     public Grammar(int id, Character startSymbol) {
         this.id = id;
         this.startSymbol = startSymbol;
@@ -39,6 +45,11 @@ public class Grammar {
         return new ArrayList<>(rules);
     }
 
+    /**
+     * Добавя правило към граматиката
+     * @param rule правилото, което ще се добави
+     */
+
     public void addRule(Rule rule) {
         Rule existingRule = getRule(rule.getLeftSide());
 
@@ -53,10 +64,19 @@ public class Grammar {
         updateSymbols(rule);
     }
 
+    /**
+     * Премахва правило
+     * @param leftSide името на правилото, което ще се премахне
+     */
     public void removeRule(Character leftSide) {
         rules.removeIf(rule -> rule.getLeftSide().equals(leftSide));
     }
 
+    /**
+     * Връща правило по име
+     * @param leftSide името на правилото, което ще върне
+     * @return правило
+     */
     public Rule getRule(Character leftSide) {
         for (Rule rule : rules) {
             if (rule.getLeftSide().equals(leftSide)) {
@@ -66,10 +86,19 @@ public class Grammar {
         return null;
     }
 
+    /**
+     * Проверява дали правило съществува
+     * @param leftSide име на правило
+     * @return true ако съществува, false ако не
+     */
     public boolean hasRule(Character leftSide) {
         return getRule(leftSide) != null;
     }
 
+    /**
+     * Добавя ново правило
+     * @param rule информация за новото правило
+     */
     private void updateSymbols(Rule rule) {
         nonTerminals.add(rule.getLeftSide());
 
@@ -84,6 +113,10 @@ public class Grammar {
         }
     }
 
+    /**
+     * Връща низ със информация за граматиката
+     * @return низ със информация за граматиката
+     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();

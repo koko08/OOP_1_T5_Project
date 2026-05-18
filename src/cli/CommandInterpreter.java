@@ -10,6 +10,9 @@ public class CommandInterpreter {
     private Map<String, Command> commands;
     private CommandContext context;
 
+    /**
+     * Създава интерпретатор и регистрира всички налични команди.
+     */
     public CommandInterpreter() {
         commands = new HashMap<>();
         context = new CommandContext();
@@ -17,6 +20,9 @@ public class CommandInterpreter {
         registerCommands();
     }
 
+    /**
+     * Регистрира всички поддържани команди в системата.
+     */
     private void registerCommands() {
         commands.put("help", new HelpCommand());
         commands.put("exit", new ExitCommand());
@@ -37,6 +43,9 @@ public class CommandInterpreter {
         commands.put("cyk", new CykCommand());
     }
 
+    /**
+     * Чете команди от потребителя докато контекстът е активен.
+     */
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
@@ -55,6 +64,11 @@ public class CommandInterpreter {
         scanner.close();
     }
 
+    /**
+     * Обработва вход от потребителя и изпълнява команда.
+     *
+     * @param input пълна входна линия
+     */
     private void processInput(String input) {
         String[] tokens = input.trim().split("\\s+");
 
@@ -81,24 +95,5 @@ public class CommandInterpreter {
                     "Error: " + e.getMessage()
             );
         }
-    }
-
-    private void execute(String input) throws Exception {
-        String[] tokens = input.split("\\s+");
-
-        String commandName = tokens[0].toLowerCase();
-
-        Command command = commands.get(commandName);
-
-        if (command == null) {
-            System.out.println("Unknown command.");
-            return;
-        }
-
-        String[] args = new String[tokens.length - 1];
-
-        System.arraycopy(tokens, 1, args, 0, args.length);
-
-        command.execute(args, context);
     }
 }

@@ -5,6 +5,12 @@ import grammar.Rule;
 
 public class GrammarSerializer {
 
+    /**
+     * Сериализира граматика към текст.
+     *
+     * @param grammar граматика
+     * @return текстово представяне
+     */
     public String serialize(Grammar grammar) {
         StringBuilder builder = new StringBuilder();
 

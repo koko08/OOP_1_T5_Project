@@ -2,6 +2,11 @@ package validation;
 
 public class RuleValidator {
 
+    /**
+     * Проверява дали даден ред е валидно правило.
+     *
+     * @param input ред от граматика
+     */
     public static void validateRule(String input) {
         if (input == null || input.isBlank()) {
             throw new IllegalArgumentException("Rule cannot be empty.");
@@ -25,6 +30,9 @@ public class RuleValidator {
         validateRightSide(parts[1].trim());
     }
 
+    /**
+     * Валидира лявата страна (нетерминал).
+     */
     private static void validateLeftSide(String leftSide) {
         if (leftSide.length() != 1) {
             throw new IllegalArgumentException(
@@ -41,6 +49,9 @@ public class RuleValidator {
         }
     }
 
+    /**
+     * Валидира дясната страна (продукции).
+     */
     private static void validateRightSide(String rightSide) {
         if (rightSide.isEmpty()) {
             throw new IllegalArgumentException(
@@ -55,6 +66,9 @@ public class RuleValidator {
         }
     }
 
+    /**
+     * Валидира една продукция.
+     */
     private static void validateProduction(String production) {
         if (production.isEmpty()) {
             throw new IllegalArgumentException(

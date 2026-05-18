@@ -6,6 +6,11 @@ import java.util.Set;
 
 public class GrammarValidator {
 
+    /**
+     * Проверява дали списъкът от редове представлява валидна граматика.
+     *
+     * @param lines редове от файл с граматика
+     */
     public static void validateGrammar(List<String> lines) {
         if (lines == null || lines.isEmpty()) {
             throw new IllegalArgumentException(
@@ -39,6 +44,11 @@ public class GrammarValidator {
         }
     }
 
+    /**
+     * Валидира първия ред (START символ).
+     *
+     * @param line първи ред от файла
+     */
     private static void validateStartLine(String line) {
         if (!line.startsWith("START:")) {
             throw new IllegalArgumentException(

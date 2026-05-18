@@ -10,6 +10,12 @@ import java.util.List;
 
 public class GrammarParser {
 
+    /**
+     * Превръща списък от редове в граматика.
+     *
+     * @param lines лист от редове
+     * @return новата граматика
+     */
     public Grammar parse(List<String> lines) {
         GrammarValidator.validateGrammar(lines);
 
@@ -37,6 +43,12 @@ public class GrammarParser {
         return grammar;
     }
 
+    /**
+     * Парсва един ред в правило.
+     *
+     * @param line ред от файл
+     * @return правило
+     */
     private Rule parseRule(String line) {
         String[] parts = line.split("->");
 

@@ -8,8 +8,19 @@ import java.util.*;
 
 public class ChomskyNormalizer {
 
+    /**
+     * Следваща свободна променлива,
+     * използвана при генериране на нови
+     * нетерминални символи.
+     */
     private char nextVariable = 'X';
 
+    /**
+     * Преобразува граматика към CNF (Chomsky Normal Form).
+     *
+     * @param grammar входна граматика
+     * @return нова нормализирана граматика
+     */
     public Grammar normalize(Grammar grammar) {
         Grammar result = new Grammar(
                 IdGenerator.nextId(),
@@ -47,6 +58,18 @@ public class ChomskyNormalizer {
         return result;
     }
 
+    /**
+     * Заменя терминали в дълги продукции
+     * с нови нетерминални символи.
+     *
+     * Пример:
+     * ABa -> ABX, X -> a
+     *
+     * @param production продукция за обработка
+     * @param grammar резултатна граматика
+     * @param terminalMap таблица терминал -> променлива
+     * @return преобразувана продукция
+     */
     private String replaceTerminals(
             String production,
             Grammar grammar,
@@ -81,6 +104,17 @@ public class ChomskyNormalizer {
         return builder.toString();
     }
 
+    /**
+     * Разбива продукции с дължина над 2
+     * на последователност от бинарни правила.
+     *
+     * Пример:
+     * ABCD -> AX, X -> BCD
+     *
+     * @param production продукция за разбиване
+     * @param grammar резултатна граматика
+     * @return редуцирана продукция
+     */
     private String breakLongProduction(
             String production,
             Grammar grammar

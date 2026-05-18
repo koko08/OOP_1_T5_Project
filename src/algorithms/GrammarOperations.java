@@ -6,6 +6,13 @@ import util.IdGenerator;
 
 public class GrammarOperations {
 
+    /**
+     * Създава обединение на две граматики.
+     *
+     * @param g1 първа граматика
+     * @param g2 втора граматика
+     * @return нова граматика, описваща union
+     */
     public static Grammar union(Grammar g1, Grammar g2) {
         Grammar result = new Grammar(IdGenerator.nextId(), 'S');
 
@@ -25,6 +32,13 @@ public class GrammarOperations {
         return result;
     }
 
+    /**
+     * Създава конкатенация на две граматики.
+     *
+     * @param g1 първа граматика
+     * @param g2 втора граматика
+     * @return нова граматика, описваща concat
+     */
     public static Grammar concat(Grammar g1, Grammar g2) {
         Grammar result = new Grammar(IdGenerator.nextId(), 'S');
 
@@ -42,6 +56,13 @@ public class GrammarOperations {
         return result;
     }
 
+    /**
+     * Създава итерация на граматика
+     * по Звезда на Клини.
+     *
+     * @param grammar входна граматика
+     * @return нова граматика
+     */
     public static Grammar iteration(Grammar grammar) {
         Grammar result = new Grammar(IdGenerator.nextId(), 'S');
 
@@ -59,6 +80,13 @@ public class GrammarOperations {
         return result;
     }
 
+    /**
+     * Копира всички правила от една
+     * граматика в друга.
+     *
+     * @param source изходна граматика
+     * @param target целева граматика
+     */
     private static void copyRules(Grammar source, Grammar target) {
         for (Rule rule : source.getRules()) {
             Rule copiedRule = new Rule(rule.getLeftSide());

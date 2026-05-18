@@ -8,10 +8,10 @@ public class HelpCommand implements Command {
     @Override
     public void execute(String[] args, CommandContext context) {
         System.out.println("""
-                open <file>
+                open <filename>
                 close
-                save
-                saveas <file>
+                save <id> <filename>
+                saveas <filename>
                 list
                 print <id>
                 addRule <id> <rule>
