@@ -7,6 +7,7 @@ import grammar.GrammarManager;
 public class CommandContext {
     private GrammarManager grammarManager;
     private FileManager fileManager;
+    private CommandRegistry commandRegistry;
 
     private String currentFilePath;
     private Grammar currentGrammar;
@@ -19,6 +20,7 @@ public class CommandContext {
     public CommandContext() {
         grammarManager = new GrammarManager();
         fileManager = new FileManager();
+        commandRegistry = new CommandRegistry();
         running = true;
     }
 
@@ -39,6 +41,13 @@ public class CommandContext {
     public FileManager getFileManager() {
         return fileManager;
     }
+
+    /**
+     * Връща командния регистър.
+     *
+     * @return CommandRegistry инстанция
+     */
+    public CommandRegistry getCommandRegistry() { return commandRegistry; }
 
     /**
      * Връща пътя до текущо отворения файл.

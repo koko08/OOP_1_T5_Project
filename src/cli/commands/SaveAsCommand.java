@@ -28,4 +28,19 @@ public class SaveAsCommand implements Command {
 
         System.out.println("Saved successfully.");
     }
+
+    @Override
+    public String getName() {
+        return "saveas";
+    }
+
+    @Override
+    public String getUsage() {
+        return "saveas <file>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Запазва отворяния файл във <file>";
+    }
 }

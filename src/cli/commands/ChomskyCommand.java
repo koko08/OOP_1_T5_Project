@@ -24,4 +24,19 @@ public class ChomskyCommand implements Command {
                         : "Grammar is NOT in CNF."
         );
     }
+
+    @Override
+    public String getName() {
+        return "chomsky";
+    }
+
+    @Override
+    public String getUsage() {
+        return "chomsky <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Проверява дали дадена граматика е в нормална форма на Чомски";
+    }
 }

@@ -19,4 +19,19 @@ public class SaveCommand implements Command {
 
         System.out.println("Saved successfully.");
     }
+
+    @Override
+    public String getName() {
+        return "save";
+    }
+
+    @Override
+    public String getUsage() {
+        return "save <id> <file>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Записва граматика във файл.";
+    }
 }

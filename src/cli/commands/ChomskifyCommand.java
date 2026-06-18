@@ -28,4 +28,19 @@ public class ChomskifyCommand implements Command {
                         + result.getId()
         );
     }
+
+    @Override
+    public String getName() {
+        return "chomskify";
+    }
+
+    @Override
+    public String getUsage() {
+        return "chomskify <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Преобразува граматика в нормална форма на Чомски.";
+    }
 }

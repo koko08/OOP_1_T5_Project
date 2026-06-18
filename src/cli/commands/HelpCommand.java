@@ -7,24 +7,27 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute(String[] args, CommandContext context) {
-        System.out.println("""
-                open <filename>
-                close
-                save <id> <filename>
-                saveas <filename>
-                list
-                print <id>
-                addRule <id> <rule>
-                removeRule <id> <non-terminal>
-                union <id1> <id2>
-                concat <id1> <id2>
-                iter <id>
-                empty <id>
-                chomsky <id>
-                chomskify <id>
-                cyk <id> <word>
-                help
-                exit
-                """);
+        for(Command command : context.getCommandRegistry().getAll()){
+            System.out.printf(
+                    "%-30s %s%n",
+                    command.getUsage(),
+                    command.getDescription()
+            );
+        }
+    }
+
+    @Override
+    public String getName() {
+        return "help";
+    }
+
+    @Override
+    public String getUsage() {
+        return "help";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Изписва всички команди и функциите им";
     }
 }

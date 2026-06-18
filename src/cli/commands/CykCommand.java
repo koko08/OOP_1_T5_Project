@@ -25,4 +25,19 @@ public class CykCommand implements Command {
                         : "Rejected."
         );
     }
+
+    @Override
+    public String getName() {
+        return "cyk";
+    }
+
+    @Override
+    public String getUsage() {
+        return "cyk <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Проверява дали дадена дума е в езика на дадена граматика (CYK алгоритъм)";
+    }
 }

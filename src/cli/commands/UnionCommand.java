@@ -29,4 +29,19 @@ public class UnionCommand implements Command {
                 "Union created with ID: " + result.getId()
         );
     }
+
+    @Override
+    public String getName() {
+        return "union";
+    }
+
+    @Override
+    public String getUsage() {
+        return "union <id1> <id2>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Намира обединението на две граматика и създава нова граматика";
+    }
 }

@@ -25,4 +25,19 @@ public class PrintCommand implements Command {
 
         System.out.println(grammar);
     }
+
+    @Override
+    public String getName() {
+        return "print";
+    }
+
+    @Override
+    public String getUsage() {
+        return "print <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Извежда граматика";
+    }
 }

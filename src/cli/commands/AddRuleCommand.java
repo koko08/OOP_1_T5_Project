@@ -45,6 +45,21 @@ public class AddRuleCommand implements Command {
         );
     }
 
+    @Override
+    public String getName() {
+        return "addRule";
+    }
+
+    @Override
+    public String getUsage() {
+        return "addRule <id> <rule>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Добавя правила";
+    }
+
     private Rule parseRule(String input) {
         String[] parts = input.split("->");
 

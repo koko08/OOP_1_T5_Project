@@ -28,4 +28,19 @@ public class RemoveRuleCommand implements Command {
 
         System.out.println("Rule removed successfully.");
     }
+
+    @Override
+    public String getName() {
+        return "removeRule";
+    }
+
+    @Override
+    public String getUsage() {
+        return "removeRule <id> <num>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Премахване на правило по пореден номер";
+    }
 }

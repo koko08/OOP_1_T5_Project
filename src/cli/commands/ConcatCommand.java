@@ -24,4 +24,19 @@ public class ConcatCommand implements Command {
                 "Concat created with ID: " + result.getId()
         );
     }
+
+    @Override
+    public String getName() {
+        return "concat";
+    }
+
+    @Override
+    public String getUsage() {
+        return "concat <id1> <id2>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Намира конкатенацията на две граматики и създава нова граматика.";
+    }
 }

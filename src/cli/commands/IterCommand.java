@@ -22,4 +22,20 @@ public class IterCommand implements Command {
                 "Iteration created with ID: " + result.getId()
         );
     }
+
+    @Override
+    public String getName() {
+        return "iter";
+    }
+
+    @Override
+    public String getUsage() {
+        return "iter <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Намира резултат от изпълнението на операцията итерация (звезда на Клини) над граматика"+
+                " и създава нова граматика";
+    }
 }

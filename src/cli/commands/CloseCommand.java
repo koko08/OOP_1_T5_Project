@@ -12,4 +12,19 @@ public class CloseCommand implements Command {
 
         System.out.println("File closed.");
     }
+
+    @Override
+    public String getName() {
+        return "close";
+    }
+
+    @Override
+    public String getUsage() {
+        return "close";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Затваря отворения файл.";
+    }
 }

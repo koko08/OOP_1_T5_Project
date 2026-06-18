@@ -24,4 +24,19 @@ public class EmptyCommand implements Command {
                         : "Language is not empty."
         );
     }
+
+    @Override
+    public String getName() {
+        return "empty";
+    }
+
+    @Override
+    public String getUsage() {
+        return "empty <id>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Проверява дали езикът на дадена граматика е празен";
+    }
 }

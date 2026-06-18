@@ -24,4 +24,19 @@ public class OpenCommand implements Command {
 
         System.out.println("File opened successfully.");
     }
+
+    @Override
+    public String getName() {
+        return "open";
+    }
+
+    @Override
+    public String getUsage() {
+        return "open <file>";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Отваря файл";
+    }
 }

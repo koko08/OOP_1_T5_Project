@@ -25,4 +25,19 @@ public class ListCommand implements Command {
             );
         }
     }
+
+    @Override
+    public String getName() {
+        return "list";
+    }
+
+    @Override
+    public String getUsage() {
+        return "list";
+    }
+
+    @Override
+    public String getDescription() {
+        return "Списък с идентификаторите на всички прочетени граматики";
+    }
 }
