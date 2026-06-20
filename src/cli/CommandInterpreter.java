@@ -1,21 +1,34 @@
 package cli;
 
 import cli.commands.*;
+import file.FileManager;
+import grammar.GrammarManager;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class CommandInterpreter {
-    private CommandRegistry registry;
-    private CommandContext context;
+    private final CommandRegistry registry;
+    private final CommandContext context;
 
     /**
      * Създава интерпретатор и регистрира всички налични команди.
      */
     public CommandInterpreter() {
-        context = new CommandContext();
+        GrammarManager grammarManager =
+                new GrammarManager();
+
+        FileManager fileManager =
+                new FileManager();
+
         registry = new CommandRegistry();
+
+        context = new CommandContext(
+                grammarManager,
+                fileManager,
+                registry
+        );
 
         registerCommands();
     }

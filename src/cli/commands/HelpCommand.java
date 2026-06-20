@@ -7,6 +7,7 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute(String[] args, CommandContext context) {
+
         for(Command command : context.getCommandRegistry().getAll()){
             System.out.printf(
                     "%-30s %s%n",

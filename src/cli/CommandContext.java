@@ -17,11 +17,11 @@ public class CommandContext {
      * Създава нов контекст със стандартни мениджъри.
      * Програмата започва в "running" състояние.
      */
-    public CommandContext() {
-        grammarManager = new GrammarManager();
-        fileManager = new FileManager();
-        commandRegistry = new CommandRegistry();
-        running = true;
+    public CommandContext(GrammarManager grammarManager, FileManager fileManager, CommandRegistry commandRegistry) {
+        this.grammarManager = grammarManager;
+        this.fileManager = fileManager;
+        this.commandRegistry = commandRegistry;
+        this.running = true;
     }
 
     /**
